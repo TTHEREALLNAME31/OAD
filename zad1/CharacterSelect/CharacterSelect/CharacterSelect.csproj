@@ -9,6 +9,7 @@
 
     <ItemGroup>
       <Folder Include="Application\" />
+      <Folder Include="Domain\Character\" />
     </ItemGroup>
 
 </Project>

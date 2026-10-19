@@ -12,18 +12,19 @@ namespace CharacterSelect
 
             while (true)
             {
-                Console.Clear();
-                Console.WriteLine("=== WYBÓR POSTACI ===");
                 Console.WriteLine("1) Wojownik");
                 Console.WriteLine("2) Mag");
                 Console.WriteLine("3) Łotrzyk");
+                Console.WriteLine("4) Rycerz");
+                Console.WriteLine("5) Łucznik");
+                Console.WriteLine("6) Nekromanta");
                 Console.WriteLine("0) Wyjście");
-                Console.Write("Wybierz klasę [0-3]: ");
+                Console.Write("Wybierz klasę [0-6]: ");
 
                 var input = Console.ReadLine();
                 if (input == "0") break;
 
-                if (!int.TryParse(input, out var choice) || choice < 1 || choice > 3)
+                if (!int.TryParse(input, out var choice) || choice < 1 || choice > 6)
                 {
                     Pause("Niepoprawny wybór. Naciśnij Enter…");
                     continue;
@@ -40,11 +41,11 @@ namespace CharacterSelect
                 Console.WriteLine(">>> Utworzono postać!");
                 character.Describe();
 
-                // Console.WriteLine("\nAkcja: atak");
-                // character.Attack();
-                //
-                // Console.WriteLine("Akcja: umiejętność specjalna");
-                // character.UseSpecial();
+                Console.WriteLine("\nAkcja: atak");
+                character.Attack();
+
+                Console.WriteLine("\nAkcja: umiejętność specjalna");
+                character.UseSpecial();
 
                 Console.WriteLine("\nChcesz utworzyć kolejną postać? (t/n): ");
                 var again = (Console.ReadLine() ?? "").Trim().ToLowerInvariant();

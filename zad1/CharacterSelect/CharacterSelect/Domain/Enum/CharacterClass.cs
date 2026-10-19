@@ -2,7 +2,10 @@ namespace CharacterSelect.Domain.Enum;
 
 public enum CharacterClass
 {
-    Warrior = 1,
-    Mage = 2,
-    Rogue = 3
+    Wojownik = 1,
+    Mag = 2,
+    Lotrzyk = 3,
+    Rycerz = 4,
+    Lucznik = 5,
+    Nekromanta = 6
 }

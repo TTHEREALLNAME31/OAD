@@ -1,19 +1,25 @@
-using CharacterSelect.Domain.Character;
-using CharacterSelect.Domain.Entity;
+using CharacterSelect.Domain.Characters;
 using CharacterSelect.Domain.Enum;
 
-namespace CharacterSelect.Application.Factory;
-
-public static class CharacterFactory
+namespace CharacterSelect.Application.Factory
 {
-    public static Character Create(CharacterClass cls, string? name)
+    public static class CharacterFactory
     {
-        return cls switch
+        public static Postac Create(CharacterClass cls, string? name)
         {
-            CharacterClass.Warrior => new Warrior(name ?? "Warrior"),
-            CharacterClass.Mage    => new Mage(name ?? "Mage"),
-            CharacterClass.Rogue   => new Rogue(name ?? "Rogue"),
-            _ => throw new ArgumentOutOfRangeException(nameof(cls), "Nieznana klasa postaci.")
-        };
+            return cls switch
+            {
+                CharacterClass.Wojownik => new Wojownik(Imie(name, "Wojownik")),
+                CharacterClass.Mag => new Mag(Imie(name, "Mag")),
+                CharacterClass.Lotrzyk => new Lotrzyk(Imie(name, "Łotrzyk")),
+                CharacterClass.Rycerz => new Rycerz(Imie(name, "Rycerz")),
+                CharacterClass.Lucznik => new Lucznik(Imie(name, "Łucznik")),
+                CharacterClass.Nekromanta => new Nekromanta(Imie(name, "Nekromanta")),
+                _ => throw new ArgumentOutOfRangeException(nameof(cls))
+            };
+        }
+
+        private static string Imie(string? name, string domyslne)
+            => string.IsNullOrWhiteSpace(name) ? domyslne : name.Trim();
     }
 }
